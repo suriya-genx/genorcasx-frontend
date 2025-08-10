@@ -135,12 +135,14 @@ export default function ToolsPage() {
         {filteredCards.length === 0 && (
           <div style={{ color: '#fff', textAlign: 'center', fontSize: 24, marginTop: 80 }}>No tools found.</div>
         )}
-        {filteredCards.length > 0 && Array.from({ length: Math.min(showCards, filteredCards.length) }, (_, i) => {
-          // Calculate the index in filteredCards for each visible card
-          // Center card is current, then +/-1, +/-2 (with wrap-around)
-          const half = Math.floor(showCards / 2);
-          let idx = (current + i - half + filteredCards.length) % filteredCards.length;
-          let pos = i - half;
+         {filteredCards.length > 0 && (() => {
+          const visible = Math.min(showCards, filteredCards.length);
+          return Array.from({ length: visible }, (_, i) => {
+            // Calculate the index in filteredCards for each visible card
+            // Center card is current, then +/-1, +/-2 (with wrap-around)
+            const half = Math.floor(visible / 2);
+            let idx = (current + i - half + filteredCards.length) % filteredCards.length;
+            let pos = i - half;
           const card = filteredCards[idx];
           const isFlipped = flipped[card.origIndex];
           const isActive = pos === 0;
@@ -190,7 +192,8 @@ export default function ToolsPage() {
               </div>
             </div>
           );
-        })}
+          });
+        })()}
         {/* Navigation Controls */}
         {filteredCards.length > 1 && (
           <>
