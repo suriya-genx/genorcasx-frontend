@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap');
+
+.headline {
+    font-family: 'Cinzel', serif;
+    font-size: 3.2rem;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4),
+                 0 0 18px rgba(255, 255, 255, 0.2);
+    margin: 0;
+    position: relative;
+}
+
+.subline {
+    font-size: 0.8rem;
+    color: #cccccc;
+    font-style: italic;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    text-align: right;
+    width: 100%;
+    max-width: auto;
+    transform: translateX(50px); /* visually aligns under "World" */
+}
+
+.hero-section-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.center-wrapper {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_delay {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: fadeUp 1.5s ease-out forwards;
+}
+
+.content_delay.img {
+    animation-delay: 2s;
+}
+
+.content_delay.text {
+    animation-delay: 3s;
+}
+
+@keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+}
+
+.content {
+    color: white;
+    font-size: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 1rem;
+}
+
+.logo-imgs {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 0.3rem; /* ↓ reduces spacing below logo */
+}
+
+.silver-line-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: fadeLineIn 0.5s ease-out 4s forwards, fadeOut 1s ease 6s forwards;
+}
+
+.silver-line {
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, silver, white);
+    animation: expandLine 2s ease-out forwards;
+    animation-delay: 4s;
+    margin-right: 10px;
+}
+
+.dots {
+    font-size: 1.2rem;
+    color: silver;
+    letter-spacing: 5px;
+    opacity: 0;
+    animation: fadeDots 0.8s ease-out 5.8s forwards;
+}
+
+@keyframes expandLine {
+    to {
+        width: 60%;
+    }
+}
+
+@keyframes fadeDots {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeLineIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.flash-screen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: white;
+    opacity: 0.6;
+    animation: flash 0.2s ease-out forwards;
+    pointer-events: none;
+    z-index: 9998;
+}
+
+@keyframes flash {
+    0% { opacity: 0.6; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0; }
+}
+
+.lightning-svg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.lightning-path {
+    fill: none;
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 5px #00f0ff)
+          drop-shadow(0 0 10px white)
+          drop-shadow(0 0 30px white);
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: boltAnimate 0.25s ease-out forwards;
+}
+
+@keyframes boltAnimate {
+    to {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+} 
