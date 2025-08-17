@@ -1,12 +1,9 @@
 import React from 'react'
 import NewHeroSection from '../components/NewHeroSection'
-import AboutSection from '../components/AboutSection'
 import ServicesSection from '../components/ServicesSection'
-import IndustriesSection from '../components/IndustriesSection'
-import CaseStudiesSection from '../components/CaseStudiesSection'
-import ProductsSection from '../components/ProductsSection'
+import DomainsSection from '../components/DomainsSection'
+import PressSection from '../components/PressSection'
 import BlogSection from '../components/BlogSection'
-import ContactSection from '../components/ContactSection'
 import { useOutletContext } from 'react-router-dom'
 
 export default function Home() {
@@ -14,11 +11,9 @@ export default function Home() {
   return (
     <>
       <NewHeroSection />
-      <AboutSection />
       <ServicesSection />
-      <IndustriesSection />
-      <CaseStudiesSection />
-      <ProductsSection />
+      <DomainsSection />
+      <PressSection />
       <BlogSection />
       {showContactModal && (
         <div style={{
@@ -26,7 +21,6 @@ export default function Home() {
         }}>
           <div style={{ background: '#222', borderRadius: 16, padding: 32, position: 'relative', width: '100%', maxWidth: 1200 }}>
             <button onClick={() => setShowContactModal(false)} style={{ position: 'absolute', top: 16, right: 16, background: 'none', border: 'none', color: '#F2F9FF', fontSize: 28, cursor: 'pointer' }}>&times;</button>
-            <ContactSection />
           </div>
         </div>
       )}

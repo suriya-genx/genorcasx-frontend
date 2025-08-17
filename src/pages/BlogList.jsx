@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
-const blogData = Object.values(import.meta.glob('../blogs/*.json', { eager: true }))
+const blogData = await Promise.all(
+  Object.entries(import.meta.glob('../blogs/*.json')).map(async ([path, resolver]) => {
+    const blog = (await resolver()).default;
+    const imageFileName = blog.image.split('/assets/')[1];
+    const imageUrl = new URL(`../assets/${imageFileName}`, import.meta.url).href;
+    return { ...blog, image: imageUrl };
+  })
+);
 
 const allCategories = [
   'All',

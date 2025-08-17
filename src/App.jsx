@@ -11,6 +11,7 @@ import TokenizerPage from './pages/TokenizerPage'
 import TextEmbedding from './pages/TextEmbedding';
 import Chunking from './pages/Chunking';
 import GroqChatbot from './pages/GroqChatbot';
+import AboutPage from './pages/AboutPage';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="tools/text-embedding" element={<TextEmbedding />} />
           <Route path="tools/chunking" element={<Chunking />} />
           <Route path="tools/groq-chatbot" element={<GroqChatbot />} />
+          <Route path="about" element={<AboutPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

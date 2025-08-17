@@ -12,9 +12,9 @@ export default function Layout() {
   const isFullScreenTool = location.pathname === '/tools/chunking' || location.pathname === '/tools/groq-chatbot'
   const [showContactModal, setShowContactModal] = useState(false)
   return (
-    <div style={{ minHeight: '100vh', background: '#111', color: '#fff', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', background: 'black', color: '#fff', display: 'flex', flexDirection: 'column' }}>
       <Header onContactClick={isHome ? () => setShowContactModal(true) : undefined} />
-      <main className="flex-grow-1 py-0" style={{ background: 'none', color: '#fff' }}>
+      <main className="flex-grow-1 py-0" style={{ background: 'black', color: '#fff' }}>
         {(isContact || isFullScreenTool) ? (
           <Outlet />
         ) : (
